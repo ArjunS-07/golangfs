@@ -1,15 +1,22 @@
-import CarCreate from "./carparking/CarCreate";
-import CarsList from "./carparking/CarsList";
-import CarView from "./carparking/CarView";
+import CarView from "./cars/CarView"
+import CarList from "./cars/CarList"
+import CarCreate from "./cars/CarCreate"
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 
-export default function App(){
-
-  return(
+function App() {
+  return (
     <>
-    <CarsList/>
-    <CarView/>
-    <CarCreate/>
+      <BrowserRouter>
+        <Routes>
+            <Route path="" element={<CarList/>}/>
+            <Route path="/car/list" element={<CarList/>}/>
+            <Route path="/car/create" element={<CarCreate/>}/>
+            <Route path="/car/view" element={<CarView/>}/>
+        </Routes>
+      
+      </BrowserRouter>
     </>
   )
 }
 
+export default App;
